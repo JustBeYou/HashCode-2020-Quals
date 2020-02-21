@@ -13,17 +13,18 @@ struct library {
     int booksPerDay;
     int* bookID;
     int score;
+    int maxBook;
 };
 
 int bookScore[MAX];
 library lib[MAX];
 
 bool sortLib (library lib1, library lib2) {
-    if (lib1.signupTime == lib2.signupTime) {
-        return lib1.score > lib2.score;
-    } else {
+    return lib1.maxBook < lib2.maxBook;
+    /*if (lib1.booksPerDay == lib2.booksPerDay) {
         return lib1.signupTime < lib2.signupTime;
-    }
+    } 
+    return lib1.booksPerDay > lib2.booksPerDay;*/
 }
 
 int out[MAX];
@@ -74,7 +75,7 @@ int main () {
     for (int i = 0; i < libTotal; i++) {
         lib[i].score = 0;
         for (int k = 0; k < lib[i].bookCount; k++) {
-            lib[i].score += lib[i].bookID[k]; 
+            lib[i].maxBook = lib[i].bookID[k]; 
         }
     }
     

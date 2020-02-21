@@ -19,11 +19,10 @@ int bookScore[MAX];
 library lib[MAX];
 
 bool sortLib (library lib1, library lib2) {
-    if (lib1.signupTime == lib2.signupTime) {
-        return lib1.score > lib2.score;
-    } else {
+    if (lib1.booksPerDay == lib2.booksPerDay) {
         return lib1.signupTime < lib2.signupTime;
-    }
+    } 
+    return lib1.booksPerDay > lib2.booksPerDay;
 }
 
 bool sortBook (int bookID1, int bookID2) {
@@ -49,7 +48,7 @@ void printLibs () {
 }
 
 int main () {
-    freopen ("c.txt", "r", stdin);
+    freopen ("f.txt", "r", stdin);
     freopen ("out.txt", "w", stdout);
 
     scanf ("%d %d %d ", &bookTotal, &libTotal, &dayTotal);
